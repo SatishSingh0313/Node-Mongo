@@ -1,10 +1,18 @@
-const express=require('express');
-const app=express();
+const mongoose=require('mongoose');
 
-app.get('/',(req,resp)=>{
-   
-    resp.send("Hello Node Js")
+const Insert=async ()=>{
+    await mongoose.connect('mongodb://127.0.0.1:27017/e-com');
 
-    resp.send("Hello Node Mongo  (DB)")
-})
-app.listen(4000);
+    const ProductSchema=new mongoose.Schema({
+        name:String,
+        brand:String,
+        price:Number
+    })
+
+    const ProductModel=mongoose.model('products',ProductSchema);
+    let data=new ProductModel({name:"Iphone 14",brand:"Apple",price:4500});
+    let result=await data.save();
+    console.log(result);
+}
+Insert();
+
