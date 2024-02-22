@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const InsertDB=async ()=>{
+const Insert=async ()=>{
     await mongoose.connect('mongodb://127.0.0.1:27017/e-com');
 
     const ProductSchema=new mongoose.Schema({
@@ -14,6 +14,6 @@ const InsertDB=async ()=>{
     let result=await data.save();
     console.log(result);
 }
-InsertDB();
+Insert();
 
 
