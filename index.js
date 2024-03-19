@@ -15,4 +15,8 @@ const Insert=async ()=>{
     console.log(result);
 }
 Insert();
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
