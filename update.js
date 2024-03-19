@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const Insert=async ()=>{
+const Update=async ()=>{
     await mongoose.connect('mongodb://127.0.0.1:27017/e-com');
 
     const ProductSchema=new mongoose.Schema({
@@ -10,13 +10,11 @@ const Insert=async ()=>{
     })
 
     const ProductModel=mongoose.model('products',ProductSchema);
-    let data=new ProductModel({name:"Iphone 14",brand:"Apple",price:4500});
-    let result=await data.save();
-    console.log(result);
+    let data=await ProductModel.updateOne(
+        {name:"Iphone 14"},
+        {$set:{price:5000,name:"Iphone 15"}} 
+    )
+    console.log(data);
+
 }
-Insert();
-<<<<<<< HEAD
-=======
-
->>>>>>> main
-
+Update();
