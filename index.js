@@ -14,9 +14,6 @@ const Insert=async ()=>{
     let result=await data.save();
     console.log(result);
 }
-Insert();
-<<<<<<< HEAD
-=======
 
->>>>>>> main
+Insert();
 
